@@ -28,3 +28,9 @@ Scenarios
 **Input:** RMMLM -> **output:** 2:1:N 
 **Input:** MMRMMLM -> **output:** 2:3:N 
 **Input:** MMMMMMMMMM -> **output:** 0:0:N (due to wrap-around)
+
+Command Pattern
+https://www.youtube.com/watch?v=7Pj5kAhVBlg&ab_channel=DerekBanas
+
+UML designer
+https://online.visual-paradigm.com/drive/#diagramlist:proj=0&dashboard

@@ -1,17 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text;
 
 namespace AdvancedMarsRover
 {
-    public class MarsRover
+    public class MarsRover : IRemoteDevice
     {
-        private Plateu plateu;
-
-        public string Execute(string input)
+        public void MoveForward()
         {
-            plateu = new Plateu();
-            plateu.Move(input);
+            Debug.WriteLine("Move Forward");
+        }
 
-            return plateu.Print();
+        public void UndoLastMovement()
+        {
+            Debug.WriteLine("Undo last movement");
         }
     }
 }

@@ -13,7 +13,7 @@ namespace AdvancedMarsRover
         [Test]
         public void StartAtCeroCeroNorth()
         {
-            Assert.AreEqual("0:0:N", new MarsRover().Execute(""));
+            Assert.AreEqual("0:0:N", new MarsRoverOld().Execute(""));
         }
         #endregion
 
@@ -24,7 +24,7 @@ namespace AdvancedMarsRover
         [TestCase("MMMM", "0:4:N")]
         public void MoveOnePositionToNorthFromStartingPosition(string input, string expected)
         {
-            Assert.AreEqual(expected, new MarsRover().Execute(input));
+            Assert.AreEqual(expected, new MarsRoverOld().Execute(input));
         }
         #endregion
 
@@ -35,7 +35,7 @@ namespace AdvancedMarsRover
         [TestCase("RRRR", "0:0:N")]
         public void TurnDirectionToRightFromStartingPosition(string input, string expected)
         {
-            Assert.AreEqual(expected, new MarsRover().Execute(input));
+            Assert.AreEqual(expected, new MarsRoverOld().Execute(input));
         }
         #endregion
 
@@ -46,7 +46,7 @@ namespace AdvancedMarsRover
         [TestCase("LLLL", "0:0:N")]
         public void TurnDirectionToLeftFromStartingPosition(string input, string expected)
         {
-            Assert.AreEqual(expected, new MarsRover().Execute(input));
+            Assert.AreEqual(expected, new MarsRoverOld().Execute(input));
         }
         #endregion
 
@@ -57,7 +57,7 @@ namespace AdvancedMarsRover
         [TestCase("MMLL", "0:2:S")]
         public void MovePositionAndTurnDirectionFromStartingPosition(string input, string expected)
         {
-            Assert.AreEqual(expected, new MarsRover().Execute(input));
+            Assert.AreEqual(expected, new MarsRoverOld().Execute(input));
         }
         #endregion
 
@@ -68,7 +68,7 @@ namespace AdvancedMarsRover
         [TestCase("MRMMLLML", "1:1:S")]
         public void TurnDirectionAndMovePositionFromStartingPosition(string input, string expected)
         {
-            Assert.AreEqual(expected, new MarsRover().Execute(input));
+            Assert.AreEqual(expected, new MarsRoverOld().Execute(input));
         }
         #endregion
 
@@ -77,7 +77,7 @@ namespace AdvancedMarsRover
         [TestCase("RMMMMMMMMMML", "0:0:N")]
         public void MoveAroundFromStartingPosition(string input, string expected)
         {
-            Assert.AreEqual(expected, new MarsRover().Execute(input));
+            Assert.AreEqual(expected, new MarsRoverOld().Execute(input));
         }
         #endregion
     }
