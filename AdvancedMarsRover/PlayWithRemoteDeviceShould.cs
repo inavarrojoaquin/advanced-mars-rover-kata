@@ -1,21 +1,25 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AdvancedMarsRover
 {
     public class PlayWithRemoteDeviceShould
     {
+        IRemoteDevice remoteDevice = MarsRoverRemoteDevice.GetDevice();
         [Test]
-        public void GetExpectedForwardMovement()
+        public void MoveForward()
         {
-            IRemoteDevice remoteDevice = MarsRoverRemoteDevice.GetDevice();
-            ICommand onCommand = new MoveRemoteDeviceForward(remoteDevice);
-            DeviceButton deviceButton = new DeviceButton(onCommand);
+            MoveRemoteDeviceForward moveForwardCommand = new MoveRemoteDeviceForward(remoteDevice);
+            DeviceButton deviceButton = new DeviceButton(moveForwardCommand);
             deviceButton.Press();
+        }
 
-            //Assert.AreEqual("Move Forward");
+        [Test]
+        public void UndoMovement()
+        {
+            MoveRemoteDeviceForward moveForwardCommand = new MoveRemoteDeviceForward(remoteDevice);
+            DeviceButton deviceButton = new DeviceButton(moveForwardCommand);
+            deviceButton.Press();
+            deviceButton.PressUndo();
         }
     }
 }

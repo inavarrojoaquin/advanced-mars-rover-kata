@@ -3,6 +3,6 @@
     public interface IRemoteDevice
     {
         public void MoveForward();
-        public void UndoLastMovement();
+        public void MoveBackguard();
     }
 }

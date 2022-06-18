@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AdvancedMarsRover
+﻿namespace AdvancedMarsRover
 {
     public class MoveRemoteDeviceForward : ICommand
     {
@@ -14,6 +10,11 @@ namespace AdvancedMarsRover
         public void Execute()
         {
             theRemoteDevice.MoveForward();
+        }
+
+        public void Undo()
+        {
+            theRemoteDevice.MoveBackguard();
         }
     }
 }

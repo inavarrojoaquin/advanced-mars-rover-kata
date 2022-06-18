@@ -33,4 +33,4 @@ Command Pattern
 https://www.youtube.com/watch?v=7Pj5kAhVBlg&ab_channel=DerekBanas
 
 UML designer
-https://online.visual-paradigm.com/drive/#diagramlist:proj=0&dashboard
+https://app.diagrams.net/

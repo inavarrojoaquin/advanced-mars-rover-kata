@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
+﻿using System.Diagnostics;
 
 namespace AdvancedMarsRover
 {
@@ -12,9 +9,9 @@ namespace AdvancedMarsRover
             Debug.WriteLine("Move Forward");
         }
 
-        public void UndoLastMovement()
+        public void MoveBackguard()
         {
-            Debug.WriteLine("Undo last movement");
+            Debug.WriteLine("Move backguard");
         }
     }
 }

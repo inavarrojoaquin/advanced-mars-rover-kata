@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AdvancedMarsRover
+﻿namespace AdvancedMarsRover
 {
     public class DeviceButton
     {
-        ICommand theCommand;
+        ICommand specificCommand;
 
         public DeviceButton(ICommand command)
         {
-            theCommand = command;
+            specificCommand = command;
         }
 
         public void Press()
         {
-            theCommand.Execute();
+            specificCommand.Execute();
+        }
+
+        public void PressUndo()
+        {
+            specificCommand.Undo();
         }
     }
 }
