@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AdvancedMarsRover
+namespace AdvancedMarsRover.Domain
 {
     internal class Plateu
     {
@@ -42,7 +42,7 @@ namespace AdvancedMarsRover
             return board;
         }
 
-        public string Print()
+        public string PrintCurrentPosition()
         {
             return board[position.X, position.Y].ToString() + ":" + direction.Name;
         }

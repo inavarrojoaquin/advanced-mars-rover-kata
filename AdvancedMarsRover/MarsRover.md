@@ -32,5 +32,12 @@ Scenarios
 Command Pattern
 https://www.youtube.com/watch?v=7Pj5kAhVBlg&ab_channel=DerekBanas
 
+-> Use the Command pattern when you want to parametrize objects with operations.
+-> Use the Command pattern when you want to queue operations, schedule their execution, or execute them remotely.
+-> Use the Command pattern when you want to implement reversible operations.
+
+State Pattern
+https://www.youtube.com/watch?v=MGEx35FjBuo&list=PLF206E906175C7E07&index=20&ab_channel=DerekBanas
+
 UML designer
 https://app.diagrams.net/

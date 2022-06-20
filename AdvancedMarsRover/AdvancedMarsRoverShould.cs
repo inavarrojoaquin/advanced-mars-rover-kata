@@ -1,3 +1,6 @@
+using AdvancedMarsRover.Command;
+using AdvancedMarsRover.Invoker;
+using AdvancedMarsRover.Receiver;
 using NUnit.Framework;
 
 namespace AdvancedMarsRover
@@ -7,13 +10,19 @@ namespace AdvancedMarsRover
         [SetUp]
         public void Setup()
         {
+            
         }
 
         #region The starting position 0:0:N
         [Test]
         public void StartAtCeroCeroNorth()
         {
-            Assert.AreEqual("0:0:N", new MarsRoverOld().Execute(""));
+            IRemoteDevice remoteDevice = MarsRoverRemoteDevice.GetDevice();
+            ICommand turnRemoteDeviceOnCommand = new TurnRemoteDeviceOnCommand(remoteDevice);
+            DeviceButton deviceButton = new DeviceButton(turnRemoteDeviceOnCommand);
+            deviceButton.Press();
+
+            Assert.AreEqual("0:0:N", remoteDevice.PrintCurrentPosition());
         }
         #endregion
 
@@ -24,7 +33,15 @@ namespace AdvancedMarsRover
         [TestCase("MMMM", "0:4:N")]
         public void MoveOnePositionToNorthFromStartingPosition(string input, string expected)
         {
-            Assert.AreEqual(expected, new MarsRoverOld().Execute(input));
+            IRemoteDevice remoteDevice = MarsRoverRemoteDevice.GetDeviceWithInstruction(input);
+            ICommand turnOnCommand = new TurnRemoteDeviceOnCommand(remoteDevice);
+            DeviceButton deviceButton = new DeviceButton(turnOnCommand);
+            deviceButton.Press();
+            ICommand moveForwardCommand = new MoveRemoteDeviceForwardCommand(remoteDevice);
+            deviceButton = new DeviceButton(moveForwardCommand);
+            deviceButton.Press();
+
+            Assert.AreEqual(expected, remoteDevice.PrintCurrentPosition());
         }
         #endregion
 
@@ -35,7 +52,15 @@ namespace AdvancedMarsRover
         [TestCase("RRRR", "0:0:N")]
         public void TurnDirectionToRightFromStartingPosition(string input, string expected)
         {
-            Assert.AreEqual(expected, new MarsRoverOld().Execute(input));
+            IRemoteDevice remoteDevice = MarsRoverRemoteDevice.GetDeviceWithInstruction(input);
+            ICommand turnOnCommand = new TurnRemoteDeviceOnCommand(remoteDevice);
+            DeviceButton deviceButton = new DeviceButton(turnOnCommand);
+            deviceButton.Press();
+            ICommand moveForwardCommand = new MoveRemoteDeviceForwardCommand(remoteDevice);
+            deviceButton = new DeviceButton(moveForwardCommand);
+            deviceButton.Press();
+
+            Assert.AreEqual(expected, remoteDevice.PrintCurrentPosition());
         }
         #endregion
 
@@ -46,7 +71,15 @@ namespace AdvancedMarsRover
         [TestCase("LLLL", "0:0:N")]
         public void TurnDirectionToLeftFromStartingPosition(string input, string expected)
         {
-            Assert.AreEqual(expected, new MarsRoverOld().Execute(input));
+            IRemoteDevice remoteDevice = MarsRoverRemoteDevice.GetDeviceWithInstruction(input);
+            ICommand turnOnCommand = new TurnRemoteDeviceOnCommand(remoteDevice);
+            DeviceButton deviceButton = new DeviceButton(turnOnCommand);
+            deviceButton.Press();
+            ICommand moveForwardCommand = new MoveRemoteDeviceForwardCommand(remoteDevice);
+            deviceButton = new DeviceButton(moveForwardCommand);
+            deviceButton.Press();
+
+            Assert.AreEqual(expected, remoteDevice.PrintCurrentPosition());
         }
         #endregion
 
@@ -57,7 +90,15 @@ namespace AdvancedMarsRover
         [TestCase("MMLL", "0:2:S")]
         public void MovePositionAndTurnDirectionFromStartingPosition(string input, string expected)
         {
-            Assert.AreEqual(expected, new MarsRoverOld().Execute(input));
+            IRemoteDevice remoteDevice = MarsRoverRemoteDevice.GetDeviceWithInstruction(input);
+            ICommand turnOnCommand = new TurnRemoteDeviceOnCommand(remoteDevice);
+            DeviceButton deviceButton = new DeviceButton(turnOnCommand);
+            deviceButton.Press();
+            ICommand moveForwardCommand = new MoveRemoteDeviceForwardCommand(remoteDevice);
+            deviceButton = new DeviceButton(moveForwardCommand);
+            deviceButton.Press();
+
+            Assert.AreEqual(expected, remoteDevice.PrintCurrentPosition());
         }
         #endregion
 
@@ -68,7 +109,15 @@ namespace AdvancedMarsRover
         [TestCase("MRMMLLML", "1:1:S")]
         public void TurnDirectionAndMovePositionFromStartingPosition(string input, string expected)
         {
-            Assert.AreEqual(expected, new MarsRoverOld().Execute(input));
+            IRemoteDevice remoteDevice = MarsRoverRemoteDevice.GetDeviceWithInstruction(input);
+            ICommand turnOnCommand = new TurnRemoteDeviceOnCommand(remoteDevice);
+            DeviceButton deviceButton = new DeviceButton(turnOnCommand);
+            deviceButton.Press();
+            ICommand moveForwardCommand = new MoveRemoteDeviceForwardCommand(remoteDevice);
+            deviceButton = new DeviceButton(moveForwardCommand);
+            deviceButton.Press();
+
+            Assert.AreEqual(expected, remoteDevice.PrintCurrentPosition());
         }
         #endregion
 
@@ -77,7 +126,15 @@ namespace AdvancedMarsRover
         [TestCase("RMMMMMMMMMML", "0:0:N")]
         public void MoveAroundFromStartingPosition(string input, string expected)
         {
-            Assert.AreEqual(expected, new MarsRoverOld().Execute(input));
+            IRemoteDevice remoteDevice = MarsRoverRemoteDevice.GetDeviceWithInstruction(input);
+            ICommand turnOnCommand = new TurnRemoteDeviceOnCommand(remoteDevice);
+            DeviceButton deviceButton = new DeviceButton(turnOnCommand);
+            deviceButton.Press();
+            ICommand moveForwardCommand = new MoveRemoteDeviceForwardCommand(remoteDevice);
+            deviceButton = new DeviceButton(moveForwardCommand);
+            deviceButton.Press();
+
+            Assert.AreEqual(expected, remoteDevice.PrintCurrentPosition());
         }
         #endregion
     }

@@ -1,4 +1,6 @@
-﻿namespace AdvancedMarsRover
+﻿using AdvancedMarsRover.Command;
+
+namespace AdvancedMarsRover.Invoker
 {
     public class DeviceButton
     {

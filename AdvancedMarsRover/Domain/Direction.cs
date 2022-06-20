@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AdvancedMarsRover
+namespace AdvancedMarsRover.Domain
 {
     public class Direction
     {

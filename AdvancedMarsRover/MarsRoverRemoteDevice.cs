@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdvancedMarsRover.Receiver;
+using System;
 
 namespace AdvancedMarsRover
 {
@@ -6,7 +7,12 @@ namespace AdvancedMarsRover
     {
         public static IRemoteDevice GetDevice()
         {
-            return new MarsRover();
+            return new MarsRover("");
+        }
+
+        public static IRemoteDevice GetDeviceWithInstruction(string input)
+        {
+            return new MarsRover(input);
         }
     }
 }

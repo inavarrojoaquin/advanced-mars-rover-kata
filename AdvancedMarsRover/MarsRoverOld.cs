@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdvancedMarsRover.Domain;
+using System;
 
 namespace AdvancedMarsRover
 {
@@ -11,7 +12,7 @@ namespace AdvancedMarsRover
             plateu = new Plateu();
             plateu.Move(input);
 
-            return plateu.Print();
+            return plateu.PrintCurrentPosition();
         }
     }
 }

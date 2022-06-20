@@ -1,9 +1,11 @@
-﻿namespace AdvancedMarsRover
+﻿using AdvancedMarsRover.Receiver;
+
+namespace AdvancedMarsRover.Command
 {
-    public class MoveRemoteDeviceForward : ICommand
+    public class MoveRemoteDeviceForwardCommand : ICommand
     {
         IRemoteDevice theRemoteDevice;
-        public MoveRemoteDeviceForward(IRemoteDevice newRemoteDevice)
+        public MoveRemoteDeviceForwardCommand(IRemoteDevice newRemoteDevice)
         {
             this.theRemoteDevice = newRemoteDevice;
         }
