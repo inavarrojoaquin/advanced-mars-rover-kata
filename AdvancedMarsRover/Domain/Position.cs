@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace AdvancedMarsRover.Domain
+﻿namespace AdvancedMarsRover.Domain
 {
-    internal class Position
+    public class Position
     {
         public int X { get; internal set; }
         public int Y { get; internal set; }

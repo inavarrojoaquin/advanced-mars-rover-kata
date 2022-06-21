@@ -2,18 +2,18 @@
 
 namespace AdvancedMarsRover.Command
 {
-    public class TurnRemoteDeviceOnCommand : ICommand
+    public class MoveForwardCommand : ICommand
     {
-        private IRemoteDevice remoteDevice;
+        private Plateu plateu;
 
-        public TurnRemoteDeviceOnCommand(IRemoteDevice remoteDevice)
+        public MoveForwardCommand(Plateu plateu)
         {
-            this.remoteDevice = remoteDevice;
+            this.plateu = plateu;
         }
 
         public void Execute()
         {
-            remoteDevice.TurnOn();
+            plateu.UpdatePosition();
         }
 
         public void Undo()

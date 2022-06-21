@@ -1,8 +1,8 @@
-﻿using System;
+﻿using AdvancedMarsRover.Domain;
 
-namespace AdvancedMarsRover.Domain
+namespace AdvancedMarsRover.Receiver
 {
-    internal class Plateu
+    public class Plateu
     {
         private Position position;
         private Direction direction;
@@ -15,16 +15,24 @@ namespace AdvancedMarsRover.Domain
             position = new Position(0, 0);
         }
 
-        public void Move(string input)
+        public void TurnRight()
         {
-            if (input.Length == 0) return;
-            
-            for (var i = 0; i < input.Length; i++) 
-            {
-                if (input[i] == 'R') direction.TurnRight();
-                if (input[i] == 'L') direction.TurnLeft();
-                if (input[i] == 'M') position = position.Update(direction.Name);
-            }
+            direction.TurnRight();
+        }
+
+        public void TurnLeft()
+        {
+            direction.TurnLeft();
+        }
+
+        public void UpdatePosition()
+        {
+            position = position.Update(direction.Name);
+        }
+
+        public string PrintCurrentPosition()
+        {
+            return board[position.X, position.Y].ToString() + ":" + direction.Name;
         }
 
         private string[,] CreateBoard()
@@ -40,11 +48,6 @@ namespace AdvancedMarsRover.Domain
             }
 
             return board;
-        }
-
-        public string PrintCurrentPosition()
-        {
-            return board[position.X, position.Y].ToString() + ":" + direction.Name;
         }
     }
 }
