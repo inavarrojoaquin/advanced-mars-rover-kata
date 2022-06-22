@@ -1,4 +1,5 @@
 using AdvancedMarsRover.Invoker;
+using AdvancedMarsRover.Receiver;
 using NUnit.Framework;
 
 namespace AdvancedMarsRover
@@ -9,7 +10,7 @@ namespace AdvancedMarsRover
         [Test]
         public void StartAtCeroCeroNorth()
         {
-            IRemoteDevice remoteDevice = new MarsRover("");
+            IRemoteDevice remoteDevice = new MarsRover();
             
             Assert.AreEqual("0:0:N", remoteDevice.PrintCurrentPosition());
         }
@@ -22,8 +23,13 @@ namespace AdvancedMarsRover
         [TestCase("MMMM", "0:4:N")]
         public void MoveOnePositionToNorthFromStartingPosition(string input, string expected)
         {
-            IRemoteDevice remoteDevice = new MarsRover(input);
-            remoteDevice.Move();
+            //hacer esto en un test nuevo
+            //Plateu plateu = new Plateu(null);
+            //IRemoteDevice remoteDevice = new MarsRover(plateu);
+            // remoteDevice.Move(input);
+            // si viene U haga un "undo" de un movimiento UUU (3 undos)
+            IRemoteDevice remoteDevice = new MarsRover();
+            remoteDevice.Move(input);
 
             Assert.AreEqual(expected, remoteDevice.PrintCurrentPosition());
         }
@@ -36,8 +42,8 @@ namespace AdvancedMarsRover
         [TestCase("RRRR", "0:0:N")]
         public void TurnDirectionToRightFromStartingPosition(string input, string expected)
         {
-            IRemoteDevice remoteDevice = new MarsRover(input);
-            remoteDevice.Move();
+            IRemoteDevice remoteDevice = new MarsRover();
+            remoteDevice.Move(input);
 
             Assert.AreEqual(expected, remoteDevice.PrintCurrentPosition());
         }
@@ -50,8 +56,8 @@ namespace AdvancedMarsRover
         [TestCase("LLLL", "0:0:N")]
         public void TurnDirectionToLeftFromStartingPosition(string input, string expected)
         {
-            IRemoteDevice remoteDevice = new MarsRover(input);
-            remoteDevice.Move();
+            IRemoteDevice remoteDevice = new MarsRover();
+            remoteDevice.Move(input);
 
             Assert.AreEqual(expected, remoteDevice.PrintCurrentPosition());
         }
@@ -64,8 +70,8 @@ namespace AdvancedMarsRover
         [TestCase("MMLL", "0:2:S")]
         public void MovePositionAndTurnDirectionFromStartingPosition(string input, string expected)
         {
-            IRemoteDevice remoteDevice = new MarsRover(input);
-            remoteDevice.Move();
+            IRemoteDevice remoteDevice = new MarsRover();
+            remoteDevice.Move(input);
 
             Assert.AreEqual(expected, remoteDevice.PrintCurrentPosition());
         }
@@ -78,8 +84,8 @@ namespace AdvancedMarsRover
         [TestCase("MRMMLLML", "1:1:S")]
         public void TurnDirectionAndMovePositionFromStartingPosition(string input, string expected)
         {
-            IRemoteDevice remoteDevice = new MarsRover(input);
-            remoteDevice.Move();
+            IRemoteDevice remoteDevice = new MarsRover();
+            remoteDevice.Move(input);
 
             Assert.AreEqual(expected, remoteDevice.PrintCurrentPosition());
         }
@@ -90,8 +96,8 @@ namespace AdvancedMarsRover
         [TestCase("RMMMMMMMMMML", "0:0:N")]
         public void MoveAroundFromStartingPosition(string input, string expected)
         {
-            IRemoteDevice remoteDevice = new MarsRover(input);
-            remoteDevice.Move();
+            IRemoteDevice remoteDevice = new MarsRover();
+            remoteDevice.Move(input);
 
             Assert.AreEqual(expected, remoteDevice.PrintCurrentPosition());
         }

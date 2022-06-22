@@ -5,17 +5,15 @@ namespace AdvancedMarsRover.Invoker
 {
     public class MarsRover : IRemoteDevice
     {
-        private string inputInstruction;
         private Plateu plateu;
         private ICommand command;
 
-        public MarsRover(string inputInstruction)
+        public MarsRover()
         {
-            this.inputInstruction = inputInstruction;
-            plateu = new Plateu();
+            plateu = new Plateu(null);
         }
 
-        public void Move()
+        public void Move(string inputInstruction)
         {
             if (inputInstruction.Length == 0) return;
 

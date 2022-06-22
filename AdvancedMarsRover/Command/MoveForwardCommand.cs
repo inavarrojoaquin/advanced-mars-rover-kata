@@ -13,7 +13,7 @@ namespace AdvancedMarsRover.Command
 
         public void Execute()
         {
-            plateu.UpdatePosition();
+            plateu.MoveForward();
         }
 
         public void Undo()

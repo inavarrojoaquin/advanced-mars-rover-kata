@@ -2,7 +2,7 @@
 {
     public interface IRemoteDevice
     {
-        void Move();
+        void Move(string input);
         string PrintCurrentPosition();
     }
 }

@@ -2,6 +2,7 @@
 {
     public class Direction
     {
+        // I think in this class we can add the State pattern
         public string Name { get; private set; }
 
         public Direction()
