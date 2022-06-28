@@ -9,35 +9,45 @@ namespace AdvancedMarsRover.Receiver
         private Position position;
         private Direction direction;
         private string[,] board;
-        
+        private bool printObstacle;
+
         public Plateu(List<KeyValuePair<int, int>> obstacles)
         {
             board = CreateBoard(obstacles);
             direction = new Direction();
             position = new Position(0, 0);
+            printObstacle = false;
         }
 
         public void TurnRight()
         {
+            if (printObstacle) return;
+
             direction.TurnRight();
         }
 
         public void TurnLeft()
         {
+            if (printObstacle) return;
+            
             direction.TurnLeft();
         }
 
         public void MoveForward()
         {
-            position = position.Update(direction.Name);
+            Position previusPosition = (Position)this.position.Clone();
+            position = this.position.Update(direction.Name);
+
+            if (board[position.X, position.Y] == OBSTACLE) 
+            { 
+                position = previusPosition;
+                printObstacle = true;
+            }
         }
 
         public string PrintCurrentPosition()
         {
-            if (board[position.X, position.Y].ToString() == OBSTACLE)
-                return board[position.X, position.Y].ToString();
-
-            return board[position.X, position.Y].ToString() + ":" + direction.Name;
+            return (printObstacle ? "O:" : "") + board[position.X, position.Y].ToString() + ":" + direction.Name;
         }
 
         private string[,] CreateBoard(List<KeyValuePair<int, int>> obstacles)

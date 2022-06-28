@@ -13,6 +13,11 @@ namespace AdvancedMarsRover.Invoker
             plateu = new Plateu(null);
         }
 
+        public MarsRover(Plateu plateu)
+        {
+            this.plateu = plateu;
+        }
+
         public void Move(string inputInstruction)
         {
             if (inputInstruction.Length == 0) return;

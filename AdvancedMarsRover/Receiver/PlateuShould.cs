@@ -56,10 +56,7 @@ namespace AdvancedMarsRover.Receiver
             plateu.MoveForward();
 
             Assert.IsNotNull(plateu);
-            Assert.AreEqual("obstacle", plateu.PrintCurrentPosition());
-
-            plateu.MoveForward();
-            Assert.AreEqual("obstacle", plateu.PrintCurrentPosition());
+            Assert.AreEqual("O:0:0:N", plateu.PrintCurrentPosition());
         }
     }
 }

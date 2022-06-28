@@ -1,6 +1,7 @@
 using AdvancedMarsRover.Invoker;
 using AdvancedMarsRover.Receiver;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace AdvancedMarsRover
 {
@@ -98,6 +99,27 @@ namespace AdvancedMarsRover
         {
             IRemoteDevice remoteDevice = new MarsRover();
             remoteDevice.Move(input);
+
+            Assert.AreEqual(expected, remoteDevice.PrintCurrentPosition());
+        }
+        #endregion
+
+        #region Moving around the plateu with obstacles
+        [TestCase("MMMM", "O:0:2:N")]
+        [TestCase("RMM", "O:1:0:E")]
+        [TestCase("MMMRMLM", "O:0:2:N")]
+        public void MoveAroundThePlateuWithObstacles(string input, string expected)
+        {
+            List<KeyValuePair<int, int>> obstacles = new List<KeyValuePair<int, int>>
+            {
+                new KeyValuePair<int, int>(0,3),
+                new KeyValuePair<int, int>(2,0)
+            };
+            Plateu plateu = new Plateu(obstacles);
+            IRemoteDevice remoteDevice = new MarsRover(plateu);
+            remoteDevice.Move(input);
+
+            // si viene U haga un "undo" de un movimiento UUU (3 undos)
 
             Assert.AreEqual(expected, remoteDevice.PrintCurrentPosition());
         }

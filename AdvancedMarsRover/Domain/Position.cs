@@ -1,4 +1,6 @@
-﻿namespace AdvancedMarsRover.Domain
+﻿using System;
+
+namespace AdvancedMarsRover.Domain
 {
     public class Position
     {
@@ -11,7 +13,7 @@
             Y = positionY;
         }
 
-        internal Position Update(string direction)
+        public Position Update(string direction)
         {
             if (direction == Directions.N.ToString()) Y += 1;
             if (direction == Directions.E.ToString()) X += 1;
@@ -22,6 +24,11 @@
             if (Y > 9) Y -= 10;
 
             return new Position(X, Y);
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }
