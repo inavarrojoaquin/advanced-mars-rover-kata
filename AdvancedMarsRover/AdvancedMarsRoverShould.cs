@@ -92,10 +92,22 @@ namespace AdvancedMarsRover
         }
         #endregion
 
-        #region -> Turn around
+        #region -> Turn around positive
         [TestCase("MMMMMMMMMM", "0:0:N")]
         [TestCase("RMMMMMMMMMML", "0:0:N")]
-        public void MoveAroundFromStartingPosition(string input, string expected)
+        public void MoveAroundPositiveFromStartingPosition(string input, string expected)
+        {
+            IRemoteDevice remoteDevice = new MarsRover();
+            remoteDevice.Move(input);
+
+            Assert.AreEqual(expected, remoteDevice.PrintCurrentPosition());
+        }
+        #endregion
+
+        #region -> Turn around negative
+        [TestCase("LM", "9:0:W")]
+        [TestCase("LMMMMMMMMMMR", "0:0:N")]
+        public void MoveAroundNegativeFromStartingPosition(string input, string expected)
         {
             IRemoteDevice remoteDevice = new MarsRover();
             remoteDevice.Move(input);
@@ -119,7 +131,19 @@ namespace AdvancedMarsRover
             IRemoteDevice remoteDevice = new MarsRover(plateu);
             remoteDevice.Move(input);
 
-            // si viene U haga un "undo" de un movimiento UUU (3 undos)
+            Assert.AreEqual(expected, remoteDevice.PrintCurrentPosition());
+        }
+        #endregion
+
+        #region Undo movement
+        [TestCase("MMUU", "0:0:N")]
+        [TestCase("RMU", "0:0:E")]
+        [TestCase("LMU", "0:0:W")]
+        [TestCase("UUUUUUUUUU", "0:0:N")]
+        public void UndoMovement(string input, string expected)
+        {
+            IRemoteDevice remoteDevice = new MarsRover();
+            remoteDevice.Move(input);
 
             Assert.AreEqual(expected, remoteDevice.PrintCurrentPosition());
         }

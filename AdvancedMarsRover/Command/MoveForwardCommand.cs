@@ -18,7 +18,7 @@ namespace AdvancedMarsRover.Command
 
         public void Undo()
         {
-            throw new System.NotImplementedException();
+            plateu.MoveBackward();
         }
     }
 }

@@ -22,6 +22,23 @@ namespace AdvancedMarsRover.Domain
 
             if (X > 9) X -= 10;
             if (Y > 9) Y -= 10;
+            if (X < 0) X += 10;
+            if (Y < 0) Y += 10;
+
+            return new Position(X, Y);
+        }
+
+        internal Position Undo(string direction)
+        {
+            if (direction == Directions.N.ToString()) Y -= 1;
+            if (direction == Directions.E.ToString()) X -= 1;
+            if (direction == Directions.S.ToString()) Y += 1;
+            if (direction == Directions.W.ToString()) X += 1;
+
+            if (X > 9) X -= 10;
+            if (Y > 9) Y -= 10;
+            if (X < 0) X += 10;
+            if (Y < 0) Y += 10;
 
             return new Position(X, Y);
         }

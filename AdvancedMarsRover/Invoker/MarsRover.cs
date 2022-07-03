@@ -28,6 +28,13 @@ namespace AdvancedMarsRover.Invoker
                 if (inputInstruction[i] == 'L') command = new TurnLeftCommand(plateu);
                 if (inputInstruction[i] == 'M') command = new MoveForwardCommand(plateu);
 
+                if (inputInstruction[i] == 'U') 
+                {
+                    command = new MoveForwardCommand(plateu);
+                    command.Undo();
+                    continue;
+                }
+                    
                 command.Execute();
             }
         }

@@ -19,6 +19,11 @@ namespace AdvancedMarsRover.Receiver
             printObstacle = false;
         }
 
+        public void MoveBackward()
+        {
+            position = this.position.Undo(direction.Name);
+        }
+
         public void TurnRight()
         {
             if (printObstacle) return;
