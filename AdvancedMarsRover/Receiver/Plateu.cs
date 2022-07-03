@@ -21,7 +21,7 @@ namespace AdvancedMarsRover.Receiver
 
         public void MoveBackward()
         {
-            position = this.position.Undo(direction.Name);
+            position = this.position.Update(direction.Name, true);
         }
 
         public void TurnRight()
