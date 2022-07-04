@@ -1,37 +1,34 @@
-﻿namespace AdvancedMarsRover.Domain
+﻿using System;
+
+namespace AdvancedMarsRover.Domain
 {
     public class Direction
     {
-        // I think in this class we can add the State pattern
         public string Name { get; private set; }
 
         public Direction()
         {
-            Name = Directions.N.ToString();            
+            Name = Compass.N.ToString();
         }
 
         public void TurnRight()
         {
-            if (Name == "N") { Name = Directions.E.ToString(); return; }
-            if (Name == "E") { Name = Directions.S.ToString(); return; }
-            if (Name == "S") { Name = Directions.W.ToString(); return; }
-            if (Name == "W") { Name = Directions.N.ToString(); return; }
+            Compass newCompass = (Compass)(((int)Enum.Parse<Compass>(Name) + 1) % 4);
+            Name = newCompass.ToString();
         }
 
         public void TurnLeft()
         {
-            if (Name == "N") { Name = Directions.W.ToString(); return; }
-            if (Name == "W") { Name = Directions.S.ToString(); return; }
-            if (Name == "S") { Name = Directions.E.ToString(); return; }
-            if (Name == "E") { Name = Directions.N.ToString(); return; }
+            Compass newCompass = (Compass)(((int)Enum.Parse<Compass>(Name) + 3) % 4);
+            Name = newCompass.ToString();
         }
     }
 
-    public enum Directions
+    public enum Compass 
     {
-        N,
-        S,
-        E,
-        W
+        N = 0, 
+        E = 1, 
+        S = 2, 
+        W = 3 
     }
 }
