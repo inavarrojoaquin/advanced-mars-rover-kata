@@ -24,11 +24,6 @@ namespace AdvancedMarsRover
         [TestCase("MMMM", "0:4:N")]
         public void MoveOnePositionToNorthFromStartingPosition(string input, string expected)
         {
-            //hacer esto en un test nuevo
-            //Plateu plateu = new Plateu(null);
-            //IRemoteDevice remoteDevice = new MarsRover(plateu);
-            // remoteDevice.Move(input);
-            // si viene U haga un "undo" de un movimiento UUU (3 undos)
             IRemoteDevice remoteDevice = new MarsRover();
             remoteDevice.Move(input);
 
@@ -37,10 +32,10 @@ namespace AdvancedMarsRover
         #endregion
 
         #region -> Turns direction to Right (R) from start position
-        //[TestCase("R", "0:0:E")]
+        [TestCase("R", "0:0:E")]
         [TestCase("RR", "0:0:S")]
-        //[TestCase("RRR", "0:0:W")]
-        //[TestCase("RRRR", "0:0:N")]
+        [TestCase("RRR", "0:0:W")]
+        [TestCase("RRRR", "0:0:N")]
         public void TurnDirectionToRightFromStartingPosition(string input, string expected)
         {
             IRemoteDevice remoteDevice = new MarsRover();
